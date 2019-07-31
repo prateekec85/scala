@@ -1,0 +1,17 @@
+Scala class can be declared using class keyword.
+By default classes are public.
+syntax for class definition is below
+class Order(orderId:Int, orderDate:String, orderCustomerId:Int, orderStatus:String) {
+	println("I am inside Order")
+} 
+
+Here we have declared a Order class with four constructor arguments.
+There arguments are private as we have not declared them with var or val. So we will not be able to access them.
+
+class Order(var orderId:Int, var orderDate:String, var orderCustomerId:Int, var orderStatus:String) {
+	println("I am inside Order")
+	override def toString : String = "Order ("+ orderId + "," + orderDate + "," + orderCustomerId + "," + orderStatus + ")"
+}
+
+in above example we have created class with var argument so we can access them and set them as well. In case of val, we will not be able to assign new value(as per the feature of val)
+We have also overridden toString method. To override any method, we need to use override keyword.
