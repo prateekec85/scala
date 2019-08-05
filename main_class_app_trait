@@ -1,0 +1,22 @@
+-----------------------------------Main class and App Trait----------------------------
+main method can be declared only in object not in class. Example is below.
+object HelloWorld {
+   def main(args : Array[String]) :Unit = {
+     println("Hello World")
+   }
+}
+
+this is similar to java public static void main(String[] args). 
+public :- every method is by default public in scala. 
+static:- There is no concept like static in scala but a bit similar concept is singleton object thus main method is present in object
+void:- Unit is the scala counterpart for void.
+String[] :- input argument in java and scala version is same.
+
+
+App trait
+Trait in scala is something similar to Interface in java.
+We can reduce a lot of code in above by using App trait like below.
+
+object HelloWorldTrait extends App {
+        println("Hello World")
+}
