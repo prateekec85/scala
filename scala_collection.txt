@@ -1,0 +1,41 @@
+Scala collections
+
+List
+	List object can be created like below
+		> var list = List(1,2,4,4,5,6)
+	Below is the description of few API on list
+	head :- this will give first element of list
+		list.head ...o/p is 1
+	
+	tail :- this will give all element expect first
+		list.tail .... o/p is 2,4,4,5,6
+	
+	last :- this will give last element
+		list.last ....o/p is 6
+	
+	size :- will give size of the list
+		list.size ... o/p is 6
+	
+	:: :- operator will help to add an element at the start of the list.
+		7 :: list .... o/p is (7,1,2,4,4,5,6)
+	
+	::: :- operator will add to list
+		> var list2 = List(1,2, 3,4)
+		> list1 ::: list2 .... o/p will be (1,2,4,4,5,6,1,2,3,4)
+	
+	list(index) :- method will give the value on that index. Index start from 0
+		list(0) ... o/p will be 1
+		list(4) ... o/p will be 5
+	
+	++ :- will add another list at the end of existing list
+		list ++ List(8) ....o/p will be (1,2,4,4,5,6,8)
+	
+	indexOf :- will give index of a given value in the list
+		list.indexOf(4) .... o/p will be 2
+	
+	map : will apply the input lambda expr to all element of list and return a new list.
+		list.map(x => x*2) ...o/p will be (2,4,8,8,10,12)
+	
+	foreach : will apply the input lambda expr to all element of list  but return nothing
+	
+Set
