@@ -37,5 +37,3 @@ List
 		list.map(x => x*2) ...o/p will be (2,4,8,8,10,12)
 	
 	foreach : will apply the input lambda expr to all element of list  but return nothing
-	
-Set
