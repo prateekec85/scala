@@ -1,0 +1,81 @@
+scala REPL
+
+>:history  show history
+>:help
+>:quit
+> :paste   ( paste mode to write multiline command, use ctrl D to end the past mode.)
+
+create mavne project in SCALA IDE
+https://medium.com/@manojkumardhakad/how-to-create-maven-project-for-spark-and-scala-in-scala-ide-1a97ac003883
+
+SCALA IDE link http://scala-ide.org/download/sdk.html
+
+scala commands can be placed in a file and saved with .scala extension. e.g. Hello.scala this file can be executed using below command
+> scala Hello.scala
+
+
+There is no static in scala.
+Object is just like singleton
+
+val vs var.....val is just like final in java
+	> val i = 0;
+	> val i = 2://error as we are assigning again to i
+	> val i = 1+2; //here + is basically a function
+	> val s = "hello"
+	
+
+Problem statement : print sum of all even numbers and odd numbers from 1 to 100
+
+var evenTotal , oddTotal = 0;
+for (element <- (1 to 100)) {
+	if (element % 2 ==0) {
+		evenTotal = evenTotal + element
+	} else {
+		oddTotal = oddTotal + element
+	}
+}
+println("even total " + evenTotal)
+println("odd total " + oddTotal)
+
+Problem statement 2:-  print sum of all even numbers and odd numbers from 1 to 100 using while loop
+var lowerValue = 1
+val upperValue = 100
+var evenTotal, oddTotal = 0
+while ( lowerValue <= upperValue) {
+	if(lowerValue % 2 == 0)  evenTotal = evenTotal + lowerValue else oddTotal = oddTotal + lowerValue
+	lowerValue = lowerValue + 1
+}
+println("even total " + evenTotal)
+println("odd total " + oddTotal)
+
+There is no ternary operator (? :) in scala as it is in java
+========================Functions===================================
+function syntax start with def keyword. 
+datatype of argument is mandatory.
+Argument of method (i.e. method parameter ) will always by default of type val
+There is no need of explicit return statement. Last statement in function body will be executed as return.
+
+def sumOfTwoNumbers( firstVal : Int, secondVal : Int) : Int = {
+	firstVal + secondVal
+}
+sumOfTwoNumbers(1,2)
+
+Anonymous Functions
+	Function can be passed as an argument to any using lambda type declaration
+
+Problem statement :- get sum of squares of all number within given range
+
+def genericSumInRanage(func:Int => Int, lowerValue: Int, upperValue: Int) :Int = {
+	var total = 0;
+	for ( element <- lowerValue to upperValue) {
+		total = total + func(element)
+	}
+	total
+}
+
+genericSumInRanage( i => i * i, 1 , 10)
+
+In above example, genericSumInRanage accepts first parameter as function having one argument of type int and return value of type int.
+so we have passed one anonymous function using lambda expression i => i * i.
+
+	

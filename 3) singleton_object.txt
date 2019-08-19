@@ -1,0 +1,15 @@
+Singleton Objects
+	Scala does not have any concept of static.
+	Definition of singleton object is same as a class just class keyword is replaced by object keyword
+	
+	e.g. object Singleton(var member:Int)
+	
+	If the name of a singleton object and a class is same, singleton object is called companion object and class is called companion class. 
+	companion object can access private members of the companion class.
+	companion object and class needs to be declared in same source file.
+	You are not allowed to create an instance of singleton object.
+	You are not allowed to pass parameter in the primary constructor of singleton object.
+	
+	In Scala, a main method is always present in singleton object.
+	The method in the singleton object is accessed with the name of the object(just like calling static method in Java), so there is no need to create an object to access this method.
+	
