@@ -1,0 +1,45 @@
+Sorting of list
+Scala has provided three methods to sort any collection sorted, sortBy and sortWith.
+
+sorted :- This method will sort the collection based on implicit ordering of its content. Lets say we have a collection of Int or String. These data type provides the default sorting in ascending order.
+
+	> var list = List(1,2,3,6,7,5,9)
+	> list.sorted ...o/p will be List(1,2,3,5,6,7,9)
+
+sortBy :- Suppose we have a list of some custom object e.g. Order, Customer, Employee etc. and we want to sort them based on some attribute of this custom object. 
+		  We will use sortBy in such scenario. It will take one function as argument. With this function we will extract attribute of the custom class.
+	
+	example 
+			scala> case class Order(orderId:Int, orderStatus:String)
+			defined class Order                                                                               ^
+
+			scala> val orderList = List(Order(1,"Inprogress"), Order(2, "Shipped"), Order( 3, "Completed"))
+			orderList: List[Order] = List(Order(1,Inprogress), Order(2,Shipped), Order(3,Completed))
+
+			scala> orderList.sortBy( x => x.orderId)
+			res108: List[Order] = List(Order(1,Inprogress), Order(2,Shipped), Order(3,Completed))
+
+			scala> orderList.sortBy( x => x.orderStatus)
+			res109: List[Order] = List(Order(3,Completed), Order(1,Inprogress), Order(2,Shipped))
+		
+sortWith :- This method takes a function as input argument to determine if first one preceeds the second one or not. Method definition is below
+		def sortWith(lt: (A, A) => Boolean): C
+		
+	example
+			scala> case class Order(orderId:Int, orderStatus:String)
+			defined class Order                                                                               ^
+
+			scala> var orderList = List(Order(1,"Shipped"), Order(2,"Delivered"), Order(3, "InProgress"))
+			orderList: List[Order] = List(Order(1,Shipped), Order(2,Delivered), Order(3,InProgress))
+
+			scala> orderList.sortWith((x,y) => x.orderId > y.orderId)
+			res113: List[Order] = List(Order(3,InProgress), Order(2,Delivered), Order(1,Shipped))
+
+			scala> orderList.sortWith((x,y) => x.orderId < y.orderId)
+			res114: List[Order] = List(Order(1,Shipped), Order(2,Delivered), Order(3,InProgress))
+
+			scala> orderList.sortWith((x,y) => x.orderStatus.compareToIgnoreCase(y.orderStatus) < 0)
+			res115: List[Order] = List(Order(2,Delivered), Order(3,InProgress), Order(1,Shipped))
+
+			scala> orderList.sortWith((x,y) => x.orderStatus.compareToIgnoreCase(y.orderStatus) > 0)
+			res116: List[Order] = List(Order(1,Shipped), Order(3,InProgress), Order(2,Delivered))
